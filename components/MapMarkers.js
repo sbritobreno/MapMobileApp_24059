@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Marker } from 'react-native-maps';
+import { Marker, Callout  } from 'react-native-maps';
 
 class MapMarkers extends Component{
     constructor(){
@@ -12,6 +12,7 @@ class MapMarkers extends Component{
             .then(response => response.json())
             .then(markersLocation => this.setState({ markers: markersLocation }));
     }
+
     defineColor(id){
         if(id === 1){
             return 'blue'
@@ -35,6 +36,7 @@ class MapMarkers extends Component{
     }
 
     render() {
+        const n = this.props.nav
         return(
             <>
             {this.state.markers.map((marker, index) => (
@@ -42,8 +44,9 @@ class MapMarkers extends Component{
                   key={index}
                   coordinate={{latitude : marker.latitude , longitude : marker.longitude}}
                   title={marker.name}
-                  pinColor= {this.defineColor(marker.place_type_id)}
-                />
+                  pinColor= {this.defineColor(marker.place_type_id)}>
+                <Callout onPress={() => n.navigate('Details')} />
+                </Marker>
               ))}
             </>
         )

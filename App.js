@@ -1,15 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
-import Map from './components/Map';
-
+import HomeScreen from './components/HomeScreen';
 import NavBar from './components/NavBar';
+import MarkerDetails from './components/MarkerDetails'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View >
-      <NavBar />
-      <Map />
+    <NavigationContainer>
       <StatusBar style="auto" />
-    </View>
+      <NavBar />
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={MarkerDetails} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
+
+export default App;
