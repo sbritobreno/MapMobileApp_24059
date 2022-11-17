@@ -5,7 +5,7 @@ import { styles as s } from 'tachyons-react-native'
 
 const NavBar = () => (
   <AppBar style={[ s.pt4]}
-    title="Title"
+    title="MapMobileApp"
     leading={props => (
       <IconButton icon={props => <Icon name="menu" {...props} />} {...props} />
     )}

@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
-import { styles as s } from 'tachyons-react-native'
+import { View } from 'react-native';
 import Map from './components/Map';
 
 import NavBar from './components/NavBar';

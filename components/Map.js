@@ -1,19 +1,23 @@
 import React from 'react';
-import { styles as s } from 'tachyons-react-native'
 import MapView from 'react-native-maps';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+import MapMarkers from './MapMarkers';
 
-const Map = () => (
-    <MapView
-        style={styles.map}
-        initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-        }}
-    />
-);
+function Map(){
+    return (
+        <MapView
+            style={styles.map}
+            initialRegion={{
+                latitude: 53.3292,
+                longitude: -6.2814,
+                latitudeDelta: 0.422,
+                longitudeDelta: 0.221,
+            }}
+            
+        ><MapMarkers />
+        </MapView>
+    )
+};
 
 const styles = StyleSheet.create({
     map: {
