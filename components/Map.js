@@ -2,6 +2,7 @@ import React from 'react';
 import MapView from 'react-native-maps';
 import { StyleSheet, Dimensions } from 'react-native';
 import MapMarkers from './MapMarkers';
+import { mapStyle } from '../utils/MapStyle'
 
 function Map(){
     return (
@@ -13,7 +14,7 @@ function Map(){
                 latitudeDelta: 0.422,
                 longitudeDelta: 0.221,
             }}
-            
+            customMapStyle={mapStyle}
         ><MapMarkers />
         </MapView>
     )
@@ -27,3 +28,4 @@ const styles = StyleSheet.create({
 });
 
 export default Map;
+

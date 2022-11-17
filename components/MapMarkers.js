@@ -12,6 +12,27 @@ class MapMarkers extends Component{
             .then(response => response.json())
             .then(markersLocation => this.setState({ markers: markersLocation }));
     }
+    defineColor(id){
+        if(id === 1){
+            return 'blue'
+        }else if(id === 2){
+            return 'green'
+        }else if(id === 3){
+            return 'yellow'
+        }else if(id === 4){
+            return 'orange'
+        }else if(id === 5){
+            return 'pink'
+        }else if(id === 6){
+            return 'purple'
+        }else if(id === 7){
+            return 'tan'
+        }else if(id === 8){
+            return 'teal'
+        }else{
+            return 'red'
+        }
+    }
 
     render() {
         return(
@@ -21,6 +42,7 @@ class MapMarkers extends Component{
                   key={index}
                   coordinate={{latitude : marker.latitude , longitude : marker.longitude}}
                   title={marker.name}
+                  pinColor= {this.defineColor(marker.place_type_id)}
                 />
               ))}
             </>
