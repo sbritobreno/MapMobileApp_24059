@@ -43,7 +43,7 @@ function Markers(props) {
                     coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
                     title={marker.name}
                     pinColor={defineColor(marker.place_type_id)}>
-                    <Callout onPress={() => n.navigate('Details')} />
+                    <Callout onPress={() => n.navigate('Details', {marker: marker})} />
                 </Marker>
             ))}
         </>
