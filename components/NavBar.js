@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, HStack, IconButton } from "@react-native-material/core";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { styles as s } from 'tachyons-react-native'
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 const NavBar = () => (
   <AppBar style={[ s.pt4 ]}

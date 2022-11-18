@@ -1,10 +1,10 @@
 import React from "react";
-import MapView from 'react-native-maps';
 import { StyleSheet, Dimensions } from 'react-native';
-import MapMarkers from './MapMarkers';
 import { mapStyle } from '../utils/MapStyle'
+import MapView from 'react-native-maps';
+import Markers from '../components/Markers'
 
-function HomeScreen({ navigation }) {
+function Map(props){
     return (
         <MapView
             style={styles.map}
@@ -15,7 +15,7 @@ function HomeScreen({ navigation }) {
                 longitudeDelta: 0.221,
             }}
             customMapStyle={mapStyle}
-        ><MapMarkers nav={navigation}/>
+        ><Markers nav={props.nav}/>
         </MapView>
     );
 }
@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen;
+export default Map;

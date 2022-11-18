@@ -4,10 +4,6 @@ import { AntDesign } from '@expo/vector-icons';
 import { IconButton } from '@react-native-material/core';
 
 function MarkerDetails({ navigation }){
-    const pressHandler = () => {
-      navigation.push('Home');
-    }
-
     return (
         <>
           <View style={{ flex: 1, alignItems: 'center', marginTop: 20 }}>
@@ -23,7 +19,7 @@ function MarkerDetails({ navigation }){
             <IconButton
               icon={props => <AntDesign name="back" size={36} color="blue" />}
               color="primary"
-              onPress={pressHandler}
+              onPress={() => navigation.navigate('Home')}
             />
           </View>
         </>

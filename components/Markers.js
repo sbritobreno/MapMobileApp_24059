@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { Marker, Callout  } from 'react-native-maps';
 
-class MapMarkers extends Component{
+class Markers extends Component{
     constructor(){
         super()
         this.state = {markers: [],}
@@ -53,4 +53,4 @@ class MapMarkers extends Component{
     }
 }
 
-export default MapMarkers;
+export default Markers;
