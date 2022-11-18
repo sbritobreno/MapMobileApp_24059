@@ -14,7 +14,7 @@ Project1 for MobileApp year 3
 - [x] Show a back button, when pressed, go back to map view
 ### 3.Allow filtering by Place Type
 - [x] Show dropdown for selecting Place Type, default value should be all
-- [] When a specific Place Type is selected, show only the places with this Place Type on the map
+- [ ] When a specific Place Type is selected, show only the places with this Place Type on the map
 ### 4.Allow custom marker
 - [ ] Long Press anywhere on map to show a draggable marker
 - [ ] Show distance2 to the nearest place (from the downloaded data), and on drag marker, update this info
