@@ -16,7 +16,7 @@ Project1 for MobileApp year 3
 - [x] Show dropdown for selecting Place Type, default value should be all
 - [] When a specific Place Type is selected, show only the places with this Place Type on the map
 ### 4.Allow custom marker
-- [] Long Press anywhere on map to show a draggable marker
-- [] Show distance2 to the nearest place (from the downloaded data), and on drag marker, update this info
-- [] Draw a semi-transparent blue circle around this marker with a radius of 10 km and show number of places within this radius
-- [] Create a slider to control the above radius in km (1-1000, default 10) and on change, update the circle on the map and update number of places within the radius info shown accordingly
+- [ ] Long Press anywhere on map to show a draggable marker
+- [ ] Show distance2 to the nearest place (from the downloaded data), and on drag marker, update this info
+- [ ] Draw a semi-transparent blue circle around this marker with a radius of 10 km and show number of places within this radius
+- [ ] Create a slider to control the above radius in km (1-1000, default 10) and on change, update the circle on the map and update number of places within the radius info shown accordingly
