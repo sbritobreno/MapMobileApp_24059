@@ -45,7 +45,7 @@ function Markers(props) {
                     pinColor={defineColor(marker.place_type_id)}>
                     <Callout onPress={() => n.navigate('Details', {marker: marker})} />
                 </Marker>
-            ))}
+                ))}
         </>
     )
 }
