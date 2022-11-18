@@ -4,11 +4,31 @@ import { styles as s } from 'tachyons-react-native'
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { ListItem } from "@react-native-material/core";
 import { ScrollView, View } from 'react-native';
+import SearchBar from 'react-native-material-design-searchbar';
 
 function NavBar() {
   const [dropdownVisible, setVisibility] = useState(false);
   const [exitDropdownVisible, setExitDdVisibility] = useState(false);
+  const [searchBarVisible, setSearchBarVisibility] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState(0)
+
+  function SearchBarComp() {
+    const onChangeSearch = query => setSearchQuery(query);
+
+    return (
+      <View style={{ marginLeft: '10%', width: '80%' }}>
+        <SearchBar
+          onSearchChange={onChangeSearch}
+          height={50}
+          placeholder={'Search...'}
+          autoCorrect={false}
+          padding={5}
+          returnKeyType={'search'}
+          inputStyle={{borderRadius: 50, backgroundColor: 'white'}} />
+      </View>
+    )
+  }
 
   function ExitDropdown() {
     return (
@@ -50,20 +70,22 @@ function NavBar() {
 
         leading={props => (
           <IconButton icon={props => <Icon name="menu" {...props} />} {...props}
-            onPress={() => {setVisibility(!dropdownVisible), setExitDdVisibility(false)}} />
+            onPress={() => { setVisibility(!dropdownVisible), setExitDdVisibility(false), setSearchBarVisibility(false) }} />
         )}
 
         trailing={props => (
           <HStack>
             <IconButton
-              icon={props => <Icon name="magnify" {...props} />}
-              {...props}/>
+              icon={props => <Icon name="magnify" {...props} />} {...props}
+              onPress={() => { setSearchBarVisibility(!searchBarVisible), setExitDdVisibility(false), setVisibility(false)}}/>
             <IconButton
-              icon={props => <Icon name="dots-vertical" {...props} />}
-              {...props} onPress={() => {setExitDdVisibility(!exitDropdownVisible), setVisibility(false)}}/>
+              icon={props => <Icon name="dots-vertical" {...props} />} {...props} 
+              onPress={() => { setExitDdVisibility(!exitDropdownVisible), setVisibility(false),
+              setSearchBarVisibility(false) }} />
           </HStack>
         )}
       />
+      {searchBarVisible ? <SearchBarComp /> : <></>}
       {exitDropdownVisible ? <ExitDropdown /> : <></>}
       {dropdownVisible ? <Dropdown /> : <></>}
     </>
