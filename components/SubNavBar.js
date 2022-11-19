@@ -1,11 +1,18 @@
-import React from "react";
+import React,{ useState } from "react";
 import { AppBar, IconButton } from "@react-native-material/core";
 import { styles as s } from 'tachyons-react-native';
 import { AntDesign } from '@expo/vector-icons';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import ExitDropdown from "./ExitDropdown";
 
 function SubNavBar(props) {
     const { navigation } = props
+    const [exitDropdownVisible, setExitDdVisibility] = useState(false);
+
+    function ExitDdVisibility(value) {
+        setExitDdVisibility(value)
+      }
+
     return (
         <>
             <AppBar style={[s.pt4]}
@@ -21,11 +28,12 @@ function SubNavBar(props) {
 
                 trailing={props => (
                     <IconButton
-                        icon={props => <Icon name="dots-vertical" {...props} />}
-                        {...props}
+                        icon={props => <Icon name="dots-vertical" {...props} />} {...props}
+                        onPress={() => setExitDdVisibility(!exitDropdownVisible)}
                     />
                 )}
             />
+            {exitDropdownVisible ? <ExitDropdown changeState={ExitDdVisibility} /> : <></>}
         </>
     )
 }
