@@ -3,6 +3,7 @@ import Map from "../components/Map";
 import NavBar from '../components/NavBar';
 
 function HomeScreen(props) {
+    const { navigation } = props
     const [markersFilter, setMarkersFilter] = useState(0)
 
     function ChangeState(id) {
@@ -12,7 +13,7 @@ function HomeScreen(props) {
     return (
         <>
             <NavBar changeState={ChangeState} />
-            <Map nav={props.navigation} filter={markersFilter} />
+            <Map navigation={navigation} filter={markersFilter} />
         </>
     );
 }

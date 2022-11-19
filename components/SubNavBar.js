@@ -4,7 +4,8 @@ import { styles as s } from 'tachyons-react-native';
 import { AntDesign } from '@expo/vector-icons';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
-function NavBar({ nav }) {
+function SubNavBar(props) {
+    const { navigation } = props
     return (
         <>
             <AppBar style={[s.pt4]}
@@ -14,7 +15,7 @@ function NavBar({ nav }) {
                     <IconButton
                         icon={props => <AntDesign name="back" size={36} color="white" />}
                         color="primary"
-                        onPress={() => nav.navigate('Home')}
+                        onPress={() => navigation.navigate('Home')}
                     />
                 )}
 
@@ -29,4 +30,4 @@ function NavBar({ nav }) {
     )
 }
 
-export default NavBar;
+export default SubNavBar;
