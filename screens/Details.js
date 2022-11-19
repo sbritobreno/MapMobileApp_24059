@@ -6,9 +6,9 @@ function MarkerDetails({ navigation, route }) {
   const { marker } = route.params
   return (
     <>
-      <SubNavBar nav={navigation}/>
+      <SubNavBar nav={navigation} />
       <View style={{ flex: 1, alignItems: 'center', marginTop: 20 }}>
-        <Image source={{uri: `https://picsum.photos/id/${Math.floor(Math.random() * 10)}/200/300`}}
+        <Image source={{ uri: `https://picsum.photos/id/${Math.floor(Math.random() * 10)}/200/300` }}
           style={{ width: 150, height: 150, borderRadius: 400 / 2, marginBottom: 20 }} />
         <Text style={styles.text}>ID: {marker.id}</Text>
         <Text style={styles.text}>Name: {marker.name}</Text>

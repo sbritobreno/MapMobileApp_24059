@@ -6,12 +6,14 @@ import { ListItem } from "@react-native-material/core";
 import { ScrollView, View } from 'react-native';
 import SearchBar from 'react-native-material-design-searchbar';
 
-function NavBar() {
+
+function NavBar({ changeState }) {
   const [dropdownVisible, setVisibility] = useState(false);
   const [exitDropdownVisible, setExitDdVisibility] = useState(false);
   const [searchBarVisible, setSearchBarVisibility] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState(0)
+
 
   function SearchBarComp() {
     const onChangeSearch = query => setSearchQuery(query);
@@ -25,7 +27,7 @@ function NavBar() {
           autoCorrect={false}
           padding={5}
           returnKeyType={'search'}
-          inputStyle={{borderRadius: 50, backgroundColor: 'white'}} />
+          inputStyle={{ borderRadius: 50, backgroundColor: 'white' }} />
       </View>
     )
   }
@@ -39,25 +41,27 @@ function NavBar() {
   }
 
   function Dropdown() {
+    const [placeTypes, setPlaceTypes] = useState([]);
+
+    loadPlaceTypes()
+
+    function loadPlaceTypes() {
+      fetch('https://gist.githubusercontent.com/saravanabalagi/541a511eb71c366e0bf3eecbee2dab0a/raw/bb1529d2e5b71fd06760cb030d6e15d6d56c34b3/place_types.json')
+        .then(response => response.json())
+        .then(data => setPlaceTypes(data))
+    }
+
     return (
       <View style={{ height: 250, width: 200 }}>
         <ScrollView>
-          <ListItem title="All Place Type" onPress={() => { setVisibility(false), setFilter(0) }} />
-          <ListItem title="Place Type 1" onPress={() => { setVisibility(false), setFilter(1) }} />
-          <ListItem title="Place Type 2" onPress={() => { setVisibility(false), setFilter(2) }} />
-          <ListItem title="Place Type 3" onPress={() => { setVisibility(false), setFilter(3) }} />
-          <ListItem title="Place Type 4" onPress={() => { setVisibility(false), setFilter(4) }} />
-          <ListItem title="Place Type 5" onPress={() => { setVisibility(false), setFilter(5) }} />
-          <ListItem title="Place Type 6" onPress={() => { setVisibility(false), setFilter(6) }} />
-          <ListItem title="Place Type 7" onPress={() => { setVisibility(false), setFilter(7) }} />
-          <ListItem title="Place Type 8" onPress={() => { setVisibility(false), setFilter(8) }} />
-          <ListItem title="Place Type 9" onPress={() => { setVisibility(false), setFilter(9) }} />
-          <ListItem title="Place Type 10" onPress={() => { setVisibility(false), setFilter(10) }} />
-          <ListItem title="Place Type 11" onPress={() => { setVisibility(false), setFilter(11) }} />
-          <ListItem title="Place Type 12" onPress={() => { setVisibility(false), setFilter(12) }} />
-          <ListItem title="Place Type 13" onPress={() => { setVisibility(false), setFilter(13) }} />
-          <ListItem title="Place Type 14" onPress={() => { setVisibility(false), setFilter(14) }} />
-          <ListItem title="Place Type 15" onPress={() => { setVisibility(false), setFilter(15) }} />
+          <ListItem title="All Place Types" onPress={() => { setVisibility(false), setFilter(0) }} />
+          {placeTypes.map((placeType, index) => (
+            <ListItem
+              key={index}
+              title={placeType.name}
+              onPress={() => { setVisibility(false), changeState(placeType.id) }} >
+            </ListItem>
+          ))}
         </ScrollView>
       </View>
     );
@@ -77,11 +81,13 @@ function NavBar() {
           <HStack>
             <IconButton
               icon={props => <Icon name="magnify" {...props} />} {...props}
-              onPress={() => { setSearchBarVisibility(!searchBarVisible), setExitDdVisibility(false), setVisibility(false)}}/>
+              onPress={() => { setSearchBarVisibility(!searchBarVisible), setExitDdVisibility(false), setVisibility(false) }} />
             <IconButton
-              icon={props => <Icon name="dots-vertical" {...props} />} {...props} 
-              onPress={() => { setExitDdVisibility(!exitDropdownVisible), setVisibility(false),
-              setSearchBarVisibility(false) }} />
+              icon={props => <Icon name="dots-vertical" {...props} />} {...props}
+              onPress={() => {
+                setExitDdVisibility(!exitDropdownVisible), setVisibility(false),
+                setSearchBarVisibility(false)
+              }} />
           </HStack>
         )}
       />

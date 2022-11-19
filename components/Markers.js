@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Marker, Callout } from 'react-native-maps';
 
 function Markers(props) {
-    const n = props.nav
     const [markers, setMarkers] = useState([]);
 
     loadMarkersLocations()
@@ -15,37 +14,53 @@ function Markers(props) {
 
     function defineColor(id) {
         if (id === 1) {
-            return 'blue'
+            return '#100'
         } else if (id === 2) {
-            return 'green'
+            return '#010'
         } else if (id === 3) {
-            return 'yellow'
+            return '#001'
         } else if (id === 4) {
-            return 'orange'
+            return '#011'
         } else if (id === 5) {
-            return 'pink'
+            return '#110'
         } else if (id === 6) {
-            return 'purple'
+            return '#400'
         } else if (id === 7) {
-            return 'tan'
+            return '#004'
         } else if (id === 8) {
-            return 'teal'
+            return '#040'
+        } else if (id === 9) {
+            return '#440'
+        } else if (id === 10) {
+            return '#044'
+        } else if (id === 11) {
+            return '#800'
+        } else if (id === 12) {
+            return '#008'
+        } else if (id === 13) {
+            return '#080'
+        } else if (id === 14) {
+            return '#088'
         } else {
-            return 'red'
+            return '#880'
         }
     }
 
     return (
         <>
-            {markers.map((marker, index) => (
-                <Marker
-                    key={index}
-                    coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
-                    title={marker.name}
-                    pinColor={defineColor(marker.place_type_id)}>
-                    <Callout onPress={() => n.navigate('Details', {marker: marker})} />
-                </Marker>
-                ))}
+            {markers.map((marker, index) => {
+                return marker.place_type_id == props.filter || props.filter == 0
+                    ?
+                    <Marker
+                        key={index}
+                        coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
+                        title={marker.name}
+                        pinColor={defineColor(marker.place_type_id)}>
+                        <Callout onPress={() => props.nav.navigate('Details', { marker: marker })} />
+                    </Marker>
+                    :
+                    <></>
+            })}
         </>
     )
 }

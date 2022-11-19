@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { AppBar, HStack, IconButton } from "@react-native-material/core";
+import React from "react";
+import { AppBar, IconButton } from "@react-native-material/core";
 import { styles as s } from 'tachyons-react-native';
 import { AntDesign } from '@expo/vector-icons';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";

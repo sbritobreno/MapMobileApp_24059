@@ -4,7 +4,7 @@ import { mapStyle } from '../utils/MapStyle'
 import MapView from 'react-native-maps';
 import Markers from '../components/Markers'
 
-function Map(props){
+function Map({ nav, filter }) {
     return (
         <MapView
             style={styles.map}
@@ -15,7 +15,7 @@ function Map(props){
                 longitudeDelta: 0.221,
             }}
             customMapStyle={mapStyle}
-        ><Markers nav={props.nav}/>
+        ><Markers nav={nav} filter={filter} />
         </MapView>
     );
 }
