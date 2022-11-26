@@ -27,7 +27,7 @@ function Markers(props) {
                         <Callout onPress={() => navigation.navigate('Details', { marker: marker })} />
                     </Marker>
                     :
-                    <></>
+                    <React.Fragment key={index}></React.Fragment>
             })}
         </>
     )
