@@ -19,8 +19,7 @@ function NavBar({ changeState }) {
 
   return (
     <>
-      <AppBar style={[s.pt4]}
-        title="MapMobileApp"
+      <AppBar style={[s.pt4]} title="MapMobileApp" color="#1d2c4d"
 
         leading={props => (
           <IconButton icon={props => <Icon name="menu" {...props} />} {...props}

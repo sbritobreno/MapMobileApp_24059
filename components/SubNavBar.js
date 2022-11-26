@@ -15,8 +15,7 @@ function SubNavBar(props) {
 
     return (
         <>
-            <AppBar style={[s.pt4]}
-                title="Marker Details"
+            <AppBar style={[s.pt4]} title="Marker Details" color="#1d2c4d"
 
                 leading={props => (
                     <IconButton
