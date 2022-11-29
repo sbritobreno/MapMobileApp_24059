@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native'
 import { mapStyle } from '../utils/MapStyle'
-import MapView from 'react-native-maps';
+import MapView from 'react-native-maps'
+import { PROVIDER_GOOGLE } from 'react-native-maps'
 import Markers from '../components/Markers'
 
 function Map(props) {
@@ -9,6 +10,7 @@ function Map(props) {
 
     return (
         <MapView
+            provider={PROVIDER_GOOGLE}
             style={styles.map}
             initialRegion={{
                 latitude: 53.3292,

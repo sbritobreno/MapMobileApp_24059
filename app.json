@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MapMobileApp",
-    "slug": "MapMobileApp",
+    "name": "MapApp",
+    "slug": "MapApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,13 +21,24 @@
       "supportsTablet": true
     },
     "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCsvdSHjaV4dkaOEwNoF_3saGsvD9IKqJs"
+        }
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#1d2c4d"
-      }
+      },
+      "package": "com.sbritobreno.MapApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "96e3d8d1-3be2-4e5b-8ca2-5d2e77e00f77"
+      }
     }
   }
 }
